@@ -1,0 +1,23 @@
+import(methods)
+import(parallel)
+
+importFrom("rtracklayer",BigWigFile,export.wig,import)
+
+importFrom("IRanges",IRanges,Rle,split,mean,as.vector,lapply,aggregate,table,runLength,coverage)
+
+importFrom("GenomicRanges",as.data.frame,GRanges,seqnames)
+
+importFrom("Rsamtools",BamFile,scanBamHeader,ScanBamParam)
+
+importFrom("GenomicAlignments",readGAlignmentsFromBam,readGAlignmentPairsFromBam)
+
+importFrom("tools", file_ext)
+
+exportPattern("^[[:alpha:]]+")
+
+exportMethods(cov.interval,cov.matrix,draw.heatmap,draw.profile,genome.covplot.cumdepth,genome.covplot.depth)
+
+export(export.wig,write.profile)
+
+exportClasses(CoverageBamFile,CoverageBigWigFile)
+
