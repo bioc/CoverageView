@@ -1,9 +1,11 @@
 import(methods)
 import(parallel)
 
+importFrom("S4Vectors",Rle,runLength)
+
 importFrom("rtracklayer",BigWigFile,export.wig,import)
 
-importFrom("IRanges",IRanges,Rle,split,mean,as.vector,lapply,aggregate,table,runLength,coverage)
+importFrom("IRanges",IRanges,split,mean,as.vector,lapply,aggregate,table,coverage)
 
 importFrom("GenomicRanges",as.data.frame,GRanges,seqnames)
 
