@@ -186,10 +186,7 @@ setMethod("cov.bin", signature(extend = "missing", no_windows = "numeric", obj =
     this_start <- x
     this_end <- (x + bin_width) - 1
     subrange <- window(data, start = this_start, end = this_end)
-    sGR.DF <- subrange@elementMetadata
-    scores <- c()
-    scores <- sGR.DF$score
-    return(mean(scores))
+    return(mean(subrange))
 }
 
 setMethod("cov.bin", signature(extend = "numeric", no_windows = "missing", obj = "CoverageBigWigFile", 
@@ -199,41 +196,24 @@ setMethod("cov.bin", signature(extend = "numeric", no_windows = "missing", obj =
     strand <- as.character(x[[5]])
     message("[INFO] processing coords:", chr, " ", pos, " ", strand)
     min <- pos - extend
-    # create a GRange of the same length than pos-extend with a coverage of 0
-    grToAdd <- GRanges()
-    if (min <= 0) {
-        grToAdd <- GRanges(seqnames = Rle(c(chr), c(abs(min - 1))), ranges = IRanges(seq(from = min, 
-            to = 0, by = 1), end = seq(from = min, to = 0, by = 1)), strand = rep("+", 
-            abs(min - 1)), score = rep(0, abs(min - 1)))
-        # when min coordinate is below 1 then min will be equal to 1
-        min <- 1
-    }
     max <- pos + extend
     # GRange with coordinates to get from WIG/BigWig file
     which <- GRanges(chr, IRanges(c(min), c(max - 1)))
-    subGRange <- import(obj, which = which, asRangedData = FALSE)
+    subGRange <- import(obj, which = which, asRangedData = FALSE,as="NumericList")
+    covdata<-unlist(subGRange)
     
-    # if 'min' was below 0 then append a GRange with 0 scores just at the beggining
-    # of the subGRange object and a length equal to the number of nucleotides below 0
-    # after calculating the 'min' coordinate
-    if (length(grToAdd) > 1) {
-        message("[INFO] Coords:", chr, " ", pos, " are below 0 after extending, 0s will be added at the beginning of the interval")
-        subGRange <- append(grToAdd, subGRange)
-    }
     # reverse if negative strand
     if (strand == "-") {
-        subGRange <- rev(subGRange)
+        covdata <- rev(covdata)
     }
     if (bin_width == 1) {
-        sGR.DF <- subGRange@elementMetadata
-        scores <- sGR.DF$score
         # add a pseudocount of one to avoid divisions by 0
-        scores <- scores + 1
-        as.matrix(scores)
+        covdata <- covdata + 1
+        as.matrix(covdata)
     } else {
         # generate vector with the initial position of each bin
         start <- seq(1, extend * 2, bin_width)
-        mean.cov.bin <- sapply(start, .cov.bin, data = subGRange, bin = bin_width)
+        mean.cov.bin <- sapply(start, .cov.bin, data = covdata, bin = bin_width)
     }
 })
 
@@ -265,14 +245,15 @@ setMethod("cov.bin", signature(extend = "missing", no_windows = "numeric", obj =
     
     # GRange with coordinates to get from WIG/BigWig file
     which <- GRanges(chr, IRanges(c(this_start), c(this_end)))
-    subGRange <- import(obj@path, which = which, asRangedData = FALSE)
+    subGRange <- import(obj, which = which, asRangedData = FALSE,as="NumericList")
+    covdata<-unlist(subGRange)
     # reverse if negative strand
     if (strand == "-") {
-        subGRange <- rev(subGRange)
+        covdata <- rev(covdata)
     }
     # generate vector with the initial position of each bin
     start_list <- seq(1, ceil, bin_width)
-    mean.cov.bin <- sapply(start_list, .cov.bin, data = subGRange, bin = bin_width)
+    mean.cov.bin <- sapply(start_list, .cov.bin, data = covdata, bin = bin_width)
     if (offset > 0) {
         if ((this_start - (offset * bin_width)) < 0) {
             mean.cov.bin <- c(rep(mean(mean.cov.bin), offset), mean.cov.bin, rep(mean(mean.cov.bin), 

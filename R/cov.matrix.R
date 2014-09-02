@@ -292,3 +292,4 @@ setMethod("cov.matrix", signature(tr = "ANY", ctl = "ANY"), function(tr, ctl, co
     }
     return(operationDF)
 }) 
+
