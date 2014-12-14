@@ -9,7 +9,7 @@ importFrom("IRanges",IRanges,split,mean,as.vector,lapply,aggregate,table,coverag
 
 importFrom("GenomicRanges",as.data.frame,GRanges,seqnames)
 
-importFrom("Rsamtools",BamFile,scanBamHeader,ScanBamParam)
+importFrom("Rsamtools",BamFile,scanBamHeader,ScanBamParam, "bamFlag<-", scanBamFlag, countBam)
 
 importFrom("GenomicAlignments",readGAlignmentsFromBam,readGAlignmentPairsFromBam)
 

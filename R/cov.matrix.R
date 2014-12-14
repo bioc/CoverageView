@@ -91,7 +91,7 @@ setMethod("cov.matrix", signature(tr = "ANY", ctl = "missing"), function(tr, coo
                   message(msg)
                   # count number of mapped reads in the BAM file (for normalization)
                   param <- ScanBamParam()
-                  bamFlag(param) <- scanBamFlag(isUnmappedQuery = FALSE, isNotPrimaryRead = FALSE)
+                  bamFlag(param) <- scanBamFlag(isUnmappedQuery = FALSE, isSecondaryAlignment = FALSE)
                   c <- countBam(tr, param = param)
                   readcount <- c$records
                   msg1 <- paste("[INFO] Number of mapped reads is", readcount, "...")
@@ -226,7 +226,7 @@ setMethod("cov.matrix", signature(tr = "ANY", ctl = "ANY"), function(tr, ctl, co
                   message(msg)
                   # count number of mapped reads in the BAM file (for normalization)
                   param <- ScanBamParam()
-                  bamFlag(param) <- scanBamFlag(isUnmappedQuery = FALSE, isNotPrimaryRead = FALSE)
+                  bamFlag(param) <- scanBamFlag(isUnmappedQuery = FALSE, isSecondaryAlignment = FALSE)
                   c <- countBam(tr, param = param)
                   readcount.trm <- c$records
                   msg1 <- paste("[INFO] Number of mapped reads is", readcount.trm, 
@@ -248,7 +248,7 @@ setMethod("cov.matrix", signature(tr = "ANY", ctl = "ANY"), function(tr, ctl, co
                   message(msg)
                   # count number of mapped reads in the BAM file (for normalization)
                   param <- ScanBamParam()
-                  bamFlag(param) <- scanBamFlag(isUnmappedQuery = FALSE, isNotPrimaryRead = FALSE)
+                  bamFlag(param) <- scanBamFlag(isUnmappedQuery = FALSE, isSecondaryAlignment = FALSE)
                   c <- countBam(ctl, param = param)
                   readcount.ctl <- c$records
                   msg1 <- paste("[INFO] Number of mapped reads is", readcount.ctl, 
