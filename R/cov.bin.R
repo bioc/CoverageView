@@ -28,9 +28,9 @@ setMethod("cov.bin", signature(extend = "numeric", no_windows = "missing", obj =
     reads <- c()
     # behave differently if type='paired'
     if (obj$run_type == "single") {
-        reads <- readGAlignmentsFromBam(obj, param = param)
+        reads <- readGAlignments(obj, param = param)
     } else {
-        reads <- readGAlignmentPairsFromBam(obj, param = param)
+        reads <- readGAlignmentPairs(obj, param = param)
     }
     # coverage method returns a Rle list
     cov <- coverage(reads)
@@ -78,9 +78,9 @@ setMethod("cov.bin", signature(x = "missing", extend = "missing", no_windows = "
     reads <- c()
     # behave differently if type='paired'
     if (obj$run_type == "single") {
-        reads <- readGAlignmentsFromBam(obj, param = param)
+        reads <- readGAlignments(obj, param = param)
     } else {
-        reads <- readGAlignmentPairsFromBam(obj, param = param)
+        reads <- readGAlignmentPairs(obj, param = param)
     }
     # coverage method returns a Rle list
     cov <- coverage(reads)
@@ -141,9 +141,9 @@ setMethod("cov.bin", signature(extend = "missing", no_windows = "numeric", obj =
     reads <- c()
     # behave differently if type='paired'
     if (obj$run_type == "single") {
-        reads <- readGAlignmentsFromBam(obj, param = param)
+        reads <- readGAlignments(obj, param = param)
     } else {
-        reads <- readGAlignmentPairsFromBam(obj, param = param)
+        reads <- readGAlignmentPairs(obj, param = param)
     }
     # coverage method returns a Rle list
     cov <- coverage(reads)

@@ -11,7 +11,7 @@ importFrom("GenomicRanges",as.data.frame,GRanges,seqnames)
 
 importFrom("Rsamtools",BamFile,scanBamHeader,ScanBamParam, "bamFlag<-", scanBamFlag, countBam)
 
-importFrom("GenomicAlignments",readGAlignmentsFromBam,readGAlignmentPairsFromBam)
+importFrom("GenomicAlignments",readGAlignments,readGAlignmentPairs)
 
 importFrom("tools", file_ext)
 

@@ -8,9 +8,9 @@ setMethod("genome.covplot.depth", signature(data = "CoverageBamFile"), function(
     # Read-in the BAM file
     reads <- c()
     if (data$run_type == "single") {
-        reads <- readGAlignmentsFromBam(data)
+        reads <- readGAlignments(data)
     } else {
-        reads <- readGAlignmentPairsFromBam(data)
+        reads <- readGAlignmentPairs(data)
     }
     # coverage method returns a Rle list
     cov <- coverage(reads)
@@ -53,9 +53,9 @@ setMethod("genome.covplot.depth", signature(data = "list"), function(data, outfi
         # Read-in the BAM file
         reads <- c()
         if (q$run_type == "single") {
-            reads <- readGAlignmentsFromBam(q)
+            reads <- readGAlignments(q)
         } else {
-            reads <- readGAlignmentPairsFromBam(q)
+            reads <- readGAlignmentPairs(q)
         }
         # coverage method returns a Rle list
         cov <- coverage(reads)
@@ -91,9 +91,9 @@ setMethod("genome.covplot.cumdepth", signature(data = "CoverageBamFile"), functi
     # Read-in the BAM file
     reads <- c()
     if (data$run_type == "single") {
-        reads <- readGAlignmentsFromBam(data)
+        reads <- readGAlignments(data)
     } else {
-        reads <- readGAlignmentPairsFromBam(data)
+        reads <- readGAlignmentPairs(data)
     }
     # coverage method returns a Rle list
     cov <- coverage(reads)
@@ -146,9 +146,9 @@ setMethod("genome.covplot.cumdepth", signature(data = "list"), function(data, ou
         # Read-in the BAM file
         reads <- c()
         if (q$run_type == "single") {
-            reads <- readGAlignmentsFromBam(q)
+            reads <- readGAlignments(q)
         } else {
-            reads <- readGAlignmentPairsFromBam(q)
+            reads <- readGAlignmentPairs(q)
         }
         # coverage method returns a Rle list
         cov <- coverage(reads)
