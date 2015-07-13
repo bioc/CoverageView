@@ -2,7 +2,8 @@ import(methods)
 import(parallel)
 
 import(BiocGenerics)
-import(S4Vectors)
+
+importFrom("S4Vectors",aggregate)
 
 importFrom("rtracklayer",BigWigFile,export.wig,import)
 
