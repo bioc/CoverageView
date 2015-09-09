@@ -3,7 +3,7 @@
 .bed.to.GRanges <- function(bedfile, ...) {
     # create conexion to the file with TSS coordinates (in Bed format)
     con <- file(bedfile)
-    grFromBed <- import(con, "BED", asRangedData = FALSE, trackLine = FALSE)
+    grFromBed <- import(con, "BED", trackLine = FALSE)
     # close conexion to the file
     on.exit(close(con))
     # Coerce into a data frame
@@ -13,7 +13,7 @@
 .gff.to.GRanges <- function(gffFile, ...) {
     # create conexion to the file with TSS coordinates (in GFF format)
     con <- file(gffFile)
-    grFromGFF <- import(con, "GFF", asRangedData = FALSE)
+    grFromGFF <- import(con, "GFF")
     # close conexion to the file
     on.exit(close(con))
     # Coerce into a data frame

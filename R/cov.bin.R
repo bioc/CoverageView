@@ -199,7 +199,7 @@ setMethod("cov.bin", signature(extend = "numeric", no_windows = "missing", obj =
     max <- pos + extend
     # GRange with coordinates to get from WIG/BigWig file
     which <- GRanges(chr, IRanges(c(min), c(max - 1)))
-    subGRange <- import(obj, which = which, asRangedData = FALSE,as="NumericList")
+    subGRange <- import(obj, which = which, as="NumericList")
     covdata<-subGRange[[1]]
     
     # reverse if negative strand
@@ -245,7 +245,7 @@ setMethod("cov.bin", signature(extend = "missing", no_windows = "numeric", obj =
     
     # GRange with coordinates to get from WIG/BigWig file
     which <- GRanges(chr, IRanges(c(this_start), c(this_end)))
-    subGRange <- import(obj, which = which, asRangedData = FALSE,as="NumericList")
+    subGRange <- import(obj, which = which, as="NumericList")
     covdata<-subGRange[[1]]
     # reverse if negative strand
     if (strand == "-") {

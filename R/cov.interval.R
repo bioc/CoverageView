@@ -93,9 +93,9 @@ setMethod("cov.interval", signature(tr = "CoverageBigWigFile", ctl = "CoverageBi
         }
         this_chr <- chr
         # import data from wig/BigWig file
-        treat.grFromWig <- import(tr, asRangedData = FALSE)
+        treat.grFromWig <- import(tr)
         treat.grFromWig <- as(treat.grFromWig, "GenomicRanges")
-        con.grFromWig <- import(ctl, asRangedData = FALSE)
+        con.grFromWig <- import(ctl)
         con.grFromWig <- as(con.grFromWig, "GenomicRanges")
         ######## check the coordinates for which the profile will be generated
         this_start <- c()
