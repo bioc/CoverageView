@@ -1,7 +1,7 @@
 Package: CoverageView
 Type: Package
 Title: Coverage visualization package for R
-Version: 1.5.1
+Version: 1.5.2
 Date: 2015-07-13
 Author: Ernesto Lowy
 Maintainer: Ernesto Lowy <ernestolowy@gmail.com>
@@ -14,5 +14,5 @@ Description: This package provides a framework for the visualization of
 biocViews: Visualization,RNASeq,ChIPSeq,Sequencing,Technology,Software
 License: Artistic-2.0
 Depends: R (>= 2.10), methods, Rsamtools (>= 1.19.17), rtracklayer
-Imports: BiocGenerics, S4Vectors, IRanges(>= 2.3.13), GenomicRanges,
+Imports: BiocGenerics, S4Vectors (>= 0.7.21), IRanges(>= 2.3.23), GenomicRanges,
         GenomicAlignments, parallel, tools
