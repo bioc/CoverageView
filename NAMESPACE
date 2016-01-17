@@ -6,7 +6,7 @@ import(S4Vectors)
 
 importFrom("rtracklayer",BigWigFile,export.wig,import)
 
-importFrom("IRanges",IRanges,mean,as.vector,lapply,table,coverage)
+importFrom("IRanges",IRanges,mean,lapply,table,coverage)
 
 importFrom("GenomicRanges",as.data.frame,GRanges,seqnames)
 
