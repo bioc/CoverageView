@@ -1,8 +1,8 @@
 import(methods)
-import(parallel)
 
-import(BiocGenerics)
 import(S4Vectors)
+
+importFrom("parallel",detectCores,mclapply)
 
 importFrom("rtracklayer",BigWigFile,export.wig,import)
 
