@@ -16,6 +16,12 @@ importFrom("GenomicAlignments",readGAlignments,readGAlignmentPairs)
 
 importFrom("tools", file_ext)
 
+importFrom("grDevices", "colorRampPalette", "dev.off", "heat.colors","png")
+  
+importFrom("graphics", "abline", "axis", "box", "grid", "image","layout", "legend", "par", "plot", "polygon")
+
+importFrom("utils", "write.table")
+
 exportPattern("^[[:alpha:]]+")
 
 exportMethods(cov.interval,cov.matrix,draw.heatmap,draw.profile,genome.covplot.cumdepth,genome.covplot.depth)
