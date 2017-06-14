@@ -1,8 +1,8 @@
 Package: CoverageView
 Type: Package
 Title: Coverage visualization package for R
-Version: 1.12.0
-Date: 2016-01-17
+Version: 1.13.0
+Date: 2017-06-14
 Author: Ernesto Lowy
 Maintainer: Ernesto Lowy <ernestolowy@gmail.com>
 Description: This package provides a framework for the visualization of
@@ -17,4 +17,4 @@ Depends: R (>= 2.10), methods, Rsamtools (>= 1.19.17), rtracklayer
 Imports: S4Vectors (>= 0.7.21), IRanges(>= 2.3.23), GenomicRanges,
         GenomicAlignments, parallel, tools
 NeedsCompilation: no
-Packaged: 2016-01-17 21:41:32 UTC; ernesto
+Packaged: 2017-06-14 21:41:32 UTC; ernesto
