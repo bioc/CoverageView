@@ -1,7 +1,7 @@
 Package: CoverageView
 Type: Package
 Title: Coverage visualization package for R
-Version: 1.21.0
+Version: 1.21.1
 Date: 2017-06-08
 Author: Ernesto Lowy
 Maintainer: Ernesto Lowy <ernestolowy@gmail.com>
@@ -11,7 +11,7 @@ Description: This package provides a framework for the visualization of
         positioning experiments or other experiment types where it is
         important to have a framework in order to inspect how the
         coverage distributed across the genome
-biocViews: Visualization,RNASeq,ChIPSeq,Sequencing,Technology,Software
+biocViews: ImmunoOncology, Visualization,RNASeq,ChIPSeq,Sequencing,Technology,Software
 License: Artistic-2.0
 Depends: R (>= 2.10), methods, Rsamtools (>= 1.19.17), rtracklayer
 Imports: S4Vectors (>= 0.7.21), IRanges(>= 2.3.23), GenomicRanges,
