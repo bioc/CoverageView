@@ -1,7 +1,7 @@
 Package: CoverageView
 Type: Package
 Title: Coverage visualization package for R
-Version: 1.22.0
+Version: 1.23.0
 Date: 2017-06-08
 Author: Ernesto Lowy
 Maintainer: Ernesto Lowy <ernestolowy@gmail.com>
