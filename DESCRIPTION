@@ -18,3 +18,4 @@ Imports: S4Vectors (>= 0.7.21), IRanges(>= 2.3.23), GenomicRanges,
         GenomicAlignments, parallel, tools
 NeedsCompilation: no
 Packaged: 2017-06-08 21:41:32 UTC; ernesto
+Config/Bioconductor/UnsupportedPlatforms: windows
